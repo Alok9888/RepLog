@@ -16,7 +16,7 @@ export default function Hero() {
       accept all risks of becoming the local <span className='text-blue-400 font-medium'>mass montrosity</span>, afflicted with severe body 
       dismorphia, unable to fit through doors.</p>
       <Button func={()=>{
-        window.location.href = '/#generate'
+        window.location.href = '#generate'
       }} text={'Accept & Begin'}/>
       <p className='text-lg text-slate-400 font-light creation'>~Creation of Aalok Shrivastav</p>
     </div>
