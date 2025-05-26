@@ -19,10 +19,17 @@ const App = () => {
       return
     }
 
-    window.location.href = '#workout'
-    let newWorkout = generateWorkout({poison, muscles, goal})
-    console.log(newWorkout)
-    setWorkout(newWorkout)
+    const newworkout = generateWorkout({ poison, muscles, goal});
+    setWorkout(newworkout);
+
+    setTimeout(() => {
+      const workoutSection = document.getElementById('workout');
+      if(workoutSection){
+        workoutSection.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    }, 0);
   }
 
   return (

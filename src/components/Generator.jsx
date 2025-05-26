@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import SectionWrapper from './SectionWrapper'
 import { WORKOUTS, SCHEMES } from '../utils/swoldier'
 import Button from './Button'
+import responsiveScroll from '../utils/scroll'
 
 function Header(props) {
   const {title, index, description} = props
@@ -50,15 +51,17 @@ export default function Generator(props) {
       <div className='grid grid-cols-2 sm:grid-cols-4 gap-4'>
         {Object.keys(WORKOUTS).map((type, typeIndex)=>{
           return(
-            <button key={typeIndex} onClick={()=>{setMuscles([]); setPoison(type)}} className={'bg-slate-950 px-2 border-[2px] py-3 rounded-lg duration-200  hover:border-blue-600 uppercase ' + (type === poison? 'border-blue-700' : 'border-blue-400')}>
+            <button key={typeIndex} onClick={()=>{
+              {responsiveScroll()};
+              setMuscles([]); setPoison(type)}} className={'bg-slate-950 px-2 border-[3px] py-3 rounded-lg duration-200  hover:border-blue-900 uppercase ' + (type === poison? 'border-blue-900' : 'border-blue-300')}>
               {type.replaceAll("_", " ")}
             </button>
           )
         })}
       </div>
-      <Header index={'02'} title={'Lock on tagets'} description={'Select the muscles judged for anihilation.'}/>
-      <div className='bg-slate-950 border-[2px] border-solid border-blue-400 rounded-lg flex flex-col'>
-        <button onClick={()=>{setShowModal(!showModal)}} className='relative flex justify-center items-center p-3'>
+      <Header id={'Lock'} index={'02'} title={'Lock on tagets'} description={'Select the muscles judged for anihilation.'}/>
+      <div className='bg-slate-950 border-[3px] border-solid border-blue-300 rounded-lg flex flex-col'>
+        <button onClick={()=>{setShowModal(!showModal);responsiveScroll()}} className='relative flex justify-center items-center p-3'>
           <p className='capitalize'>{muscles.length === 0 ? 'Select muscle groups' : muscles.join(' ')}</p>
           <i className="fa-solid absolute right-3 top-1/2 -translate-1/2 fa-caret-down"></i>
         </button>
@@ -82,7 +85,7 @@ export default function Generator(props) {
       <div className='grid grid-cols-1 sm:grid-cols-3 gap-4'>
         {Object.keys(SCHEMES).map((scheme, schemeIndex)=>{
          return(
-            <button key={schemeIndex} onClick={()=>{setGoal(scheme)}} className={'bg-slate-950 border-[2px] py-3 px-4 rounded-lg duration-200  hover:border-blue-600 uppercase ' + (scheme === goal? 'border-blue-700' : 'border-blue-400')}>
+            <button key={schemeIndex} onClick={()=>{setGoal(scheme)}} className={'bg-slate-950 border-[3px] py-3 px-4 rounded-lg duration-200  hover:border-blue-900 uppercase ' + (scheme === goal? 'border-blue-900' : 'border-blue-300')}>
               {scheme.replaceAll("_", " ")}
             </button>
           )
