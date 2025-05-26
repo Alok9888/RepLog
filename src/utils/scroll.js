@@ -3,10 +3,10 @@ export default function responsiveScroll(){
   let scrollAmount;
 
   if(window.innerWidth < 600){
-    scrollAmount = 50;
+    scrollAmount = 450;
   }
   else if(window.innerWidth < 1024){
-    scrollAmount = 100;
+    scrollAmount = 200;
   }
   else{
     scrollAmount = 200;
